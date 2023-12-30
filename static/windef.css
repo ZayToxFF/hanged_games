@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #16213D;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+
+section{
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+

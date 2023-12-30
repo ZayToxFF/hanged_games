@@ -1,0 +1,196 @@
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #16213D;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Default styles for section and form */
+section {
+  display: flex;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  width: 350px;
+  height: 600px;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Default styles for images */
+img {
+  margin-bottom: 0;
+  width: 170px;
+  height: 170px;
+  position: relative;
+}
+
+/* Default styles for input fields and buttons */
+#pseudo,
+#categorie,
+#lettre {
+  border: none;
+  border-radius: 12px;
+  padding: 20px 20%;
+  color: white;
+  text-align: center;
+  background-color: #16213D;
+}
+
+#pseudo::after,
+#categorie::after,
+#lettre::after {
+  border: none;
+  padding: 20px 20%;
+  color: white;
+  background-color: #16213D;
+}
+
+.button {
+  display: block;
+  text-decoration: none;
+  margin: 25px;
+}
+
+/* Button styles */
+.pushable {
+  background: #4511ac;
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.front {
+  display: block;
+  padding: 12px 52px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  background: #16213D;
+  color: white;
+  transform: translateY(-6px);
+  border: 0;
+  cursor: pointer;
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+
+/* Footer styles */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+/* Message styles */
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  text-align: center;
+  width: 350px;
+  height: 50px;
+  color: #4511ac;
+  border-radius: 12px;
+}
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 768px) {
+  form {
+      width: 90%;
+      height: auto;
+  }
+
+  img {
+      width: 120px;
+      height: 120px;
+  }
+
+  #pseudo,
+  #categorie,
+  #lettre {
+      padding: 10px 10%;
+  }
+
+  .button {
+      margin: 15px;
+  }
+
+  select option {
+      text-align: left;
+  }
+  
+  .pushable {
+    background: #4511ac;
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+  }
+  
+  .front {
+    display: block;
+    padding: 12px 52px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    background: #16213D;
+    color: white;
+    transform: translateY(-6px);
+    border: 0;
+    cursor: pointer;
+  }
+  
+  .pushable:active .front {
+    transform: translateY(-2px);
+  }
+  .pushable2 {
+    background: #4511ac;
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+  }
+  
+  .front2 {
+    display: block;
+    padding: 12px 52px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    background: #16213D;
+    color: white;
+    transform: translateY(-6px);
+    border: 0;
+    cursor: pointer;
+  }
+  
+  .pushable2:active .front2 {
+    transform: translateY(-2px);
+  }
+
+  .message {
+      width: 90%;
+      height: auto;
+      font-size: 1rem;
+  }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/gif" href="../static/img/favicon.ico" />
+    <link rel="icon" type="image/gif" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pendu.css') }}">
+    <title>HANGMAN - Joue aux pendu</title></head></head>
+<body>
+    <section>            
+        <form method="POST">
+            <img class="animate__animated animate__flash animate__slow animate__infinite" src="{{ url_for('static', filename='img/load.png') }}" width="20px" height="20px" alt="">
+
+            <div style="color: #16213D; font-size: 25px; font-weight: bold;"> 
+                <p style="font-size: 40px;">
+                    {% for lettre in mot_secret %}
+                    {% if not lettre.isalnum() %}
+                        {{ lettre }}
+                    {% else %}
+                        _
+                    {% endif %}
+                {% endfor %}                
+                </p>
+                <p style="font-size: 15px; margin: 0;">Essais restants : {{ essais }}</p>
+            </div>
+
+            <input type="hidden" name="pseudo" value="{{ pseudo }}">
+            <input type="hidden" name="categorie" value="{{ categorie }}">
+            <input type="hidden" name="mot_secret" value="{{ mot_secret }}">
+            <input type="hidden" name="lettres_devinees" value="{{ lettres_devinees }}">
+            <input type="hidden" name="essais_restants" value="{{ essais }}">
+            <label for="lettre">Devinez une lettre : </label>
+            <input class="animate__animated animate__fadeInLeft animate__slow" type="text" required onkeypress="return handleEnter(event)" maxlength="1" id="lettre" name="lettre" value="{{ categorie }}"required><br><br>
+            <button class="animate__animated animate__fadeInRight animate__slow	 pushable">
+            <input class="front" type="submit" value='Envoyez'  type='SUBMIT'>
+            </button>
+                <div class="animate__animated animate__fadeInUp animate__slow	 footer">
+                  <a class="pushable2 button" href="https://github.com/ZayToxFF"><i class="front2 fa-brands fa-github"></i></a>
+                  <a id="pushable" class="pushable2 button" href="#"><i id="volumeIcon" class="front2 fa-solid fa-volume-high"></i></a>
+            </div>
+        </form>
+        
+        <p class="message"><i style="margin-right: 8px;" class="fa-solid fa-bell"></i> {{ message }}</p>
+    </section>
+</body>
+</html>
+
+<script>
+    // Sélectionnez l'élément input par son ID
+    var inputElement = document.getElementById("lettre");
+
+    // Ajoutez un gestionnaire d'événements pour l'événement keydown (touche enfoncée)
+    document.addEventListener("keydown", function(event) {
+        // Vérifiez si la touche est une lettre (a-zA-Z) ou un chiffre (0-9)
+        if (/^[a-zA-Z0-9]$/.test(event.key)) {
+            // Mettez la valeur de la touche dans l'élément input
+            inputElement.value = event.key;
+        }
+    });
+</script>
+
+<script>
+    function handleEnter(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent the default Enter key behavior (e.g., line break)
+            document.querySelector('form').submit(); // Trigger the form submission
+        }
+    }
+</script>

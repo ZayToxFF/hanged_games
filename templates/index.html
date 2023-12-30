@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/gif" href="../static/img/favicon.ico" />
+    <link rel="icon" type="image/gif" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>HANGMAN - Accueil</title></head>
+<body>
+    <section>
+        <form method="POST" action="/">
+            <img class="animate__animated animate__backInUp animate__slow	" src="{{ url_for('static', filename='img/logo.png') }}" width="200px" height="200px" alt="">
+
+            <input class="animate__animated animate__backInUp animate__slow	" type="text" id="pseudo" name="pseudo" value="Pseudo"required><br><br>
+    
+            <select class="animate__animated animate__backInUp animate__slow" id="categorie" name="categorie" required>
+                <option value="animaux">Animaux</option>
+                <option value="fruits">Fruits</option>
+                <option value="légumes">Légumes</option>
+                <option value="pays">Pays</option>
+                <option value="sports">Sports</option>
+                <option value="marques">Marques</option>
+                <option value="metiers">Métiers</option>
+                <option value="ecrivains_francais">Ecrivains Français</option>
+                <option value="acteurs_americains">Acteurs Aaméricains</option>
+                <option value="acteurs_français">Acteurs Français</option>
+            </select><br><br>
+    
+            <button class="animate__animated animate__backInUp animate__slow	 pushable">
+                <input class="front" type="submit" value="Commencer"  type='SUBMIT'>
+              </button>
+                <div class="animate__animated animate__backInUp animate__slow	 footer">
+                  <a class="pushable2 button" href="https://github.com/ZayToxFF"><i class="front2 fa-brands fa-github"></i></a>
+                  <a id="pushable" class="pushable2 button" href="#"><i id="volumeIcon" class="front2 fa-solid fa-volume-high"></i></a>
+                </div>
+        </form>
+    </section>
+</body>
+</html>

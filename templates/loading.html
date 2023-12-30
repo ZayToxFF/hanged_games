@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/gif" href="../static/img/favicon.ico" />
+    <link rel="icon" type="image/gif" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>HANGMAN - La partie charge...</title>
+</head>
+<body>
+    <section>
+        <img style="height: 150px; width: 150px;" class="animate__animated animate__flash animate__slow animate__infinite" src="{{ url_for('static', filename='img/load.png') }}" width="150px" height="150px" alt="">
+        <p style="color: white; margin-top: 10px; font-size: xx-large;">Chargement en cours...</p>
+
+        <audio id="audioElement" loop autoplay>
+            <source  src="Zen Garden_ Soothing Meditation Music For Deep Relaxation.mp3" type="audio/mpeg">
+            Votre navigateur ne prend pas en charge l'élément audio.
+        </audio>
+    </section>
+
+</body>
+</html>
+
+<script>
+    const volumeIcon = document.getElementById("volumeIcon");
+    const pushable = document.getElementById("pushable");
+    const audioElement = document.getElementById("audioElement");
+
+
+    let isMuted = false;
+
+    pushable.addEventListener("click", () => {
+        if (isMuted) {
+            audioElement.play();
+            volumeIcon.classList.remove("fa-volume-xmark");
+            volumeIcon.classList.add("fa-volume-high");
+        } else {
+            audioElement.pause();
+            volumeIcon.classList.remove("fa-volume-high");
+            volumeIcon.classList.add("fa-volume-xmark");
+        }
+        isMuted = !isMuted;
+    });
+</script>
+
+<script>
+    // Simuler la fin du chargement après 3 secondes (à remplacer par votre propre logique)
+    setTimeout(function() {
+        window.location.href = '/pendu';  // Redirige vers la page principale
+    }, 3000);  // 3000 millisecondes (3 secondes)
+</script>
